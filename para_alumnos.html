@@ -112,7 +112,21 @@
 </main>
 
 <script>
- 
+  text = $("#camposelector");
+  $("#boton").click(function(){
+    if (text.val().length == 0) {
+      alert("Debe ingresar un selector jQuery!");
+    } else {
+      try {
+        content = eval(text.val());
+        content.fadeOut(1000);
+        content.fadeIn(1000);
+        $(".historial").append("<p>" + text.val() + "</p>");
+        $(".seleccionados").append("<p>" + content.length + "</p>");
+      } catch {}
+      text.val("");
+    }
+  });
 </script>
 
 </body>
